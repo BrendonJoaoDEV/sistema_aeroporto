@@ -15,7 +15,7 @@ cursor = conexao.cursor()
 
 cursor.execute('''
     CREATE TABLE IF NOT EXISTS viajante (
-        id_viajante INTEGER,
+        id_viajante INTEGER PRIMARY KEY AUTOINCREMENT,
         nome_viajante TEXT,
         cpf INTEGER,
         idade INTEGER,
@@ -25,34 +25,35 @@ cursor.execute('''
 
 cursor.execute('''
     CREATE TABLE IF NOT EXISTS telefone (
-        id_telefone INTEGER,
+        id_telefone INTEGER PRIMARY KEY AUTOINCREMENT,
         id_viajante INTEGER,
-        telefone INTEGER
-    )
+        telefone INTEGER,
+        FOREIGN KEY (id_viajante) REFERENCES viajante(id_viajante) 
 ''')
 
 cursor.execute('''
     CREATE TABLE IF NOT EXISTS companhia (
-        id_companhia INTEGER,
+        id_companhia INTEGER PRIMARY KEY AUTOINCREMENT,
         nome_companhia TEXT
     )
 ''')
 
 cursor.execute('''
     CREATE TABLE IF NOT EXISTS aviao (
-        id_aviao INTEGER,
+        id_aviao INTEGER PRIMARY KEY AUTOINCREMENT,
         id_companhia INTEGER,
         nome_aviao TEXT,
         modelo_aviao TEXT,
         ano_fabricacao INTEGER,
         numero_voos INTEGER,
-        numero_assentos INTEGER
+        numero_assentos INTEGER,
+        FOREIGN KEY (id_companhia) REFERENCES companhia(id_companhia)
     )
 ''')
 
 cursor.execute('''
     CREATE TABLE IF NOT EXISTS rota (
-        id_rota INTEGER,
+        id_rota INTEGER PRIMARY KEY AUTOINCREMENT,
         cidade_partida TEXT,
         cidade_chegada TEXT,
         duracao TEXT
@@ -61,7 +62,7 @@ cursor.execute('''
 
 cursor.execute('''
     CREATE TABLE IF NOT EXISTS passagem (
-        id_passagem INTEGER,
+        id_passagem INTEGER PRIMARY KEY AUTOINCRMENT,
         id_viajante INTEGER,
         id_aviao INTEGER,
         id_rota INTEGER,
@@ -71,6 +72,9 @@ cursor.execute('''
         numero_paradas INTEGER,
         assentos_diponiveis INTEGER,
         preco REAL,
-        forma_pagamento TEXT
-    )
+        forma_pagamento TEXT,
+        FOREIGN KEY (id_viajante) REFERENCES viajante(id_viajante),
+        FOREIGN KEY (id_aviao) REFERENCES aviao(id_aviao),
+        FOREIGN KEY (id_rota) REFERENCES rota(id_rota)
+     )
 ''')

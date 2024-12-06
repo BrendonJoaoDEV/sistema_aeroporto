@@ -21,7 +21,7 @@ cursor.execute('''
         cpf INTEGER,
         idade INTEGER,
         email TEXT
-    )
+    );
 ''')
 
 cursor.execute('''
@@ -30,13 +30,14 @@ cursor.execute('''
         id_viajante INTEGER,
         telefone INTEGER,
         FOREIGN KEY (id_viajante) REFERENCES viajante(id_viajante) 
+    );
 ''')
 
 cursor.execute('''
     CREATE TABLE IF NOT EXISTS companhia (
         id_companhia INTEGER PRIMARY KEY AUTOINCREMENT,
         nome_companhia TEXT
-    )
+    );
 ''')
 
 cursor.execute('''
@@ -49,7 +50,7 @@ cursor.execute('''
         numero_voos INTEGER,
         numero_assentos INTEGER,
         FOREIGN KEY (id_companhia) REFERENCES companhia(id_companhia)
-    )
+    );
 ''')
 
 cursor.execute('''
@@ -58,12 +59,12 @@ cursor.execute('''
         cidade_partida TEXT,
         cidade_chegada TEXT,
         duracao TEXT
-    )
+    );
 ''')
 
 cursor.execute('''
     CREATE TABLE IF NOT EXISTS passagem (
-        id_passagem INTEGER PRIMARY KEY AUTOINCRMENT,
+        id_passagem INTEGER PRIMARY KEY AUTOINCREMENT,
         id_viajante INTEGER,
         id_aviao INTEGER,
         id_rota INTEGER,
@@ -77,7 +78,7 @@ cursor.execute('''
         FOREIGN KEY (id_viajante) REFERENCES viajante(id_viajante),
         FOREIGN KEY (id_aviao) REFERENCES aviao(id_aviao),
         FOREIGN KEY (id_rota) REFERENCES rota(id_rota)
-     )
+     );
 ''')
 
 # Salvando e fechando a conexão:

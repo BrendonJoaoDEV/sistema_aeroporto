@@ -9,11 +9,11 @@ def criar_registro(tabela, dados):
     # Importção da biblioteca sqlite e os placeholders:
     import sqlite3
     from banco_dados.placeholders import placeholders
-    
+
     # Criação de uma conexão com o banco e um cursor para manipulação:
     conexao = sqlite3.connect("banco_dados/bancos_dados.db")
     cursor = conexao.cursor()
-    
+
     # Verificão de qual tabela será usada para agir de acordo:
     if tabela == 'viajante':
         cursor.executemany(placeholders['viajante'], dados)
@@ -35,10 +35,10 @@ def criar_registro(tabela, dados):
         resposta = 'Inserção concluída'
     else:
         resposta = 'Falha na inserção: tabela não encontrada'
-    
+
     # Salvando os dados e fechando a conexão:
     conexao.commit()
     conexao.close()
-    
+
     # Retorno da função:
     return resposta

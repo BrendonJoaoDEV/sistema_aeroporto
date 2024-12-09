@@ -6,38 +6,39 @@
 
 # Definição da tabela:
 def deletar_registro(tabela, identificador):
-    # Importação sqlite:
+    # Importação sqlite e dos placeholders:
     import sqlite3
+    from banco_dados.placeholders import deletes
 
     # Criação de uma conexão e um cursor:
-    conexao = sqlite3.connect("banco_dados/bancos_dados.db")
+    conexao = sqlite3.connect('banco_dados/bancos_dados.db')
     cursor = conexao.cursor()
 
     # Deletando um ou mais dados:
     if tabela == 'viajante':
-        cursor.executemany(
-            '''DELETE FROM viajante WHERE id_viajante = ?''', identificador)
+        cursor.executemany(deletes['viajante'], identificador)
         resposta = 'Exclusão concluída'
+
     elif tabela == 'telefone':
-        cursor.executemany(
-            '''DELETE FROM telefone WHERE id_telefone = ?''', identificador)
+        cursor.executemany(deletes['telefone'], identificador)
         resposta = 'Exclusão concluída'
+
     elif tabela == 'companhia':
-        cursor.executemany(
-            '''DELETE FROM companhia WHERE id_companhia = ?''', identificador)
+        cursor.executemany(deletes['companhia'], identificador)
         resposta = 'Exclusão concluída'
+
     elif tabela == 'aviao':
-        cursor.executemany(
-            '''DELETE FROM aviao WHERE id_aviao = ?''', identificador)
+        cursor.executemany(deletes['aviao'], identificador)
         resposta = 'Exclusão concluída'
+
     elif tabela == 'rota':
-        cursor.executemany(
-            '''DELETE FROM rota WHERE id_rota = ?''', identificador)
+        cursor.executemany(deletes['rota'], identificador)
         resposta = 'Exclusão concluída'
+
     elif tabela == 'passagem':
-        cursor.executemany(
-            '''DELETE FROM passagem WHERE id_passagem = ?''', identificador)
+        cursor.executemany(deletes['passagem'], identificador)
         resposta = 'Exclusão concluída'
+
     else:
         resposta = 'Falha na exclusão: tabela não encontrada'
 

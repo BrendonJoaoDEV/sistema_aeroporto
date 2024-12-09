@@ -5,7 +5,7 @@
 # Módulo onde será definida a função que atualiza registros existentes no banco:
 
 # Definição da função:
-def autualizar_registro(tabela, identificador, novo_registro):
+def atualizar_registro(tabela, identificador, novo_registro):
     # Imporção do sqlite e dos placeholders:
     import sqlite3
     from banco_dados.placeholders import updates

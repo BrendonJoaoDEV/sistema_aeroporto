@@ -8,8 +8,7 @@
 import sqlite3
 
 # Criando a conexão com o banco de dados:
-conexao = sqlite3.connect(
-    "C:/Repositórios Brendon/Sistema_aeroporto/banco_dados/bancos_dados.db")
+conexao = sqlite3.connect('banco_dados/bancos_dados.db')
 
 # Criando um cursor (objeto que executa comandos SQL):
 cursor = conexao.cursor()

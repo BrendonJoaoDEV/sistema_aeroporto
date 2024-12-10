@@ -6,6 +6,17 @@
 
 # Definição da função:
 def atualizar_registro(tabela, identificador, novo_registro):
+    """Atualizar registro
+
+    Args:
+        tabela (string): nome da tabela que será alterada.
+        identificador (int): um id que identifica unicamente cada registro.
+        novo_registro (list): novos dados para o registro identificado.
+
+    Returns:
+        string: Mensagem dizendo se operação funcionou ou falhou.
+    """
+
     # Imporção do sqlite e dos placeholders:
     import sqlite3
     from banco_dados.placeholders import updates

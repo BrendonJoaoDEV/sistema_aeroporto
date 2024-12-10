@@ -6,6 +6,17 @@
 
 # Definição da função:
 def visualizar_registro(campos, tabelas, condicao):
+    """visualizar registro
+
+    Args:
+        campos (string): string com os campos separados por vírgulas.
+        tabelas (list): lista com strings dos nomes das tabelas que deseja ver.
+        condicao (string): condição para que os dados sejam retornados ou não.
+
+    Returns:
+        list or string: lista contendo os dados que a query encontrou ou mensagem de erro.
+    """
+
     # Importação do sqlite e do prettytable:
     import sqlite3
 

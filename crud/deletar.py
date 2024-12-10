@@ -6,6 +6,16 @@
 
 # Definição da tabela:
 def deletar_registro(tabela, identificador):
+    """Deletar registro
+
+    Args:
+        tabela (string): nome da tabela onde está o registro.
+        identificador (int): id que identifica unicamente o registro que deve ser deletado. 
+
+    Returns:
+        string: mensagem dizendo se a operação funcionou ou falhou.
+    """
+
     # Importação sqlite e dos placeholders:
     import sqlite3
     from banco_dados.placeholders import deletes

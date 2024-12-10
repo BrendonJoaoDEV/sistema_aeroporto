@@ -6,6 +6,16 @@
 
 # Definição da função:
 def criar_registro(tabela, dados):
+    """Criar registro
+
+    Args:
+        tabela (string): nome da tabela que os dados devem ser inseridos.
+        dados (list): lista de tuplas com os dados.
+
+    Returns:
+        string: mensagem dizendo se a operação funcionou ou falhou.
+    """
+
     # Importação da biblioteca sqlite e os placeholders:
     import sqlite3
     from banco_dados.placeholders import inserts

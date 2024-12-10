@@ -36,23 +36,16 @@ while True:
         break
     
     elif opcao == '1':
-        while True:
-            print('Em qual tabela você deseja inserir dados?')
-            print('0 - Voltar')
-            print('1 - Viajante')
-            print('2 - Telefone')
-            print('3 - Companhia')
-            print('4 - Avião')
-            print('5 - Passagem')
-            print('6 - Rota')
-            
-            # tabela e dados
+        pass
     elif opcao == '2':
         pass
+        # Campos, tabelas e condicao
     elif opcao == '3':
         pass
+        # tabela, identificador, novo_registro
     elif opcao == '4':
         pass
+        # Tabela e identificador
     else:
         pass
     break

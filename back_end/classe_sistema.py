@@ -5,10 +5,10 @@
 # Módulo onde seram encapsuladas as funções desse pacote em uma classe para facilitar a importação:
 
 # Importando as funções dos outros módulos:
-from crud.criar import criar_registro
-from crud.visualizar import visualizar_registro
-from crud.atualizar import atualizar_registro
-from crud.deletar import deletar_registro
+from back_end.criar import criar_registro
+from back_end.visualizar import visualizar_registro
+from back_end.atualizar import atualizar_registro
+from back_end.deletar import deletar_registro
 
 # Criação da classe:
 class Sistema:

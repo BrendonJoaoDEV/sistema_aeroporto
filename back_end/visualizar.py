@@ -5,7 +5,7 @@
 # Módulo onde será definida a função que imprime registro no banco:
 
 # Definição da função:
-def visualizar_registro(campos, tabelas, condicao):
+def visualizar_registro(tabela):
     """visualizar registro
 
     Args:
@@ -19,27 +19,38 @@ def visualizar_registro(campos, tabelas, condicao):
 
     # Importação do sqlite e do prettytable:
     import sqlite3
+    from banco_dados.placeholders import selects
 
     # Criação de uma conexão e um cursor:
     conexao = sqlite3.connect('banco_dados/bancos_dados.db')
     cursor = conexao.cursor()
 
     # Analisando como a query deve ser formada:
-    if len(tabelas) == 1:
-        cursor.execute(f'''SELECT {campos} FROM {tabelas} WHERE {condicao}''')
+    if tabela == 'viajante':
+        cursor.execute(selects['viajante'])
         resultado = cursor.fetchall()
-
-    elif len(tabelas) == 2:
-        # Lógica para substituir o nome das tabelas e chaves
-        # Para formar querys com quaisqueres tabelas que forem passadas.
-        cursor.execute(f'''SELECT {campos} FROM {tabelas[0]}
-                       INNER JOIN {tabelas[0]}.id_{tabelas[1]} = 
-                       {tabelas[1]}.id_{tabelas[1]}
-                       WHERE {condicao}''')
+    
+    elif tabela == 'telefone':
+        cursor.execute(selects['telefone'])
         resultado = cursor.fetchall()
-
+        
+    elif tabela == 'companhia':
+        cursor.execute(selects['companhia'])
+        resultado = cursor.fetchall()
+        
+    elif tabela == 'aviao':
+        cursor.execute(selects['aviao'])
+        resultado = cursor.fetchall()
+    elif tabela == 'rota':
+        cursor.execute(selects['rota'])
+        resultado = cursor.fetchall()
+        
+    elif tabela == 'passagem':
+        cursor.execute(selects['passagem'])
+        resultado = cursor.fetchall()
+        
     else:
-        resultado = 'Operação não planejada :/'
+        resultado = 'Falha na visualização: tabela não encontrada'
 
     # Retorno da função:
     return resultado

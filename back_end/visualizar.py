@@ -14,7 +14,8 @@ def visualizar_registro(tabela):
         condicao (string): condição para que os dados sejam retornados ou não.
 
     Returns:
-        list or string: lista contendo os dados que a query encontrou ou mensagem de erro.
+        resultado(list or string): lista contendo os dados que a query encontrou ou mensagem de erro.
+        cursor(onject): objeto que pode ser usado para exibição de tabelas prettytable.
     """
 
     # Importação do sqlite e do prettytable:
@@ -53,4 +54,4 @@ def visualizar_registro(tabela):
         resultado = 'Falha na visualização: tabela não encontrada'
 
     # Retorno da função:
-    return resultado
+    return resultado, cursor

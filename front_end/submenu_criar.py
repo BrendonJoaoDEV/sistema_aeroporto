@@ -125,7 +125,7 @@ def opcao_1():
 
                 id_companhia = input(
                     'Digite o id da companhia dona do avião: '
-                    ).strip().lower()
+                ).strip().lower()
 
                 nome = input('Digite o nome do avião: ').strip().lower()
 
@@ -149,7 +149,7 @@ def opcao_1():
                 # Dando ao usuário a opção de adicionar mais dados:
                 opcao = input(
                     'Deseja adicionar mais dados na tabela avião (s/n): '
-                    ).strip().lower()
+                ).strip().lower()
                 if opcao == 's':
                     continue
                 else:
@@ -157,11 +157,106 @@ def opcao_1():
 
         # Inserção na tabela passagem:
         elif opcao == '5':
-            pass
+            tabela = 'passagem'
+
+            # Looping de inserção de dados:
+            while True:
+                # Exibe a tabela viajante para a correta relação entre viajante e passagem:
+                exibir_tabela('viajante')
+
+                id_viajante = input(
+                    'Digite o id do viajante: ').strip().lower()
+
+                # Exibe a tabela aviao para a correta relação entre aviao e passagem:
+                exibir_tabela('aviao')
+
+                id_aviao = input('Digite o id do avião: ').strip().lower()
+
+                # Exibe a tabela rota para a correta relação entre rota e passagem:
+                exibir_tabela('rota')
+
+                id_rota = input('Digite o id da rota: ').strip().lower()
+
+                data_hora_partida = input(
+                    'Digite a data e hora de partida (aaaa/mm/dd - hh/mm): '
+                    ).strip().lower()
+
+                data_hora_chegada = input(
+                    'Digite a data e hora de chegada (aaaa/mm/dd - hh/mm): '
+                    ).strip().lower()
+
+                data_hora_volta = input(
+                    'Digite a data e hora de volta (aaaa/mm/dd - hh/mm): '
+                    ).strip().lower()
+
+                numero_paradas = input(
+                    'Digite o número de paradas do voo: ').strip().lower()
+
+                assentos_diponiveis = input(
+                    'Digite o número de assentos disponíveis: '
+                    ).strip().lower()
+
+                preco = input(
+                    'Digite o preço da passagem (R$ 00000.00): '
+                    ).strip().lower()
+
+                print('<::::::::::> FORMAS DE PAGAMENTO <::::::::::>')
+                print('1 - Pix')
+                print('2 - Dinheiro')
+                print('3 - Cheque')
+                print('4 - Cartão Crédito')
+                print('5 - Cartão Débito')
+                print('6 - Boleto')
+                print('7 - Parcelamento')
+
+                forma_pagamento = input(
+                    'Digite o n° da forma de pagamento: ').strip().lower()
+
+                # Salvando uma copia das informações em dados e limpando informacao:
+                informacao = (id_viajante, id_aviao, id_rota,
+                            data_hora_partida, data_hora_chegada, 
+                            data_hora_volta, numero_paradas,
+                            assentos_diponiveis, preco, forma_pagamento)
+                dados.append(informacao)
+                informacao = ()
+
+                # Dando ao usuário a opção de adicionar mais dados:
+                opcao = input(
+                    'Deseja adicionar mais dados na tabela passagem (s/n): ').strip().lower()
+                if opcao == 's':
+                    continue
+                else:
+                    break
 
         # Inserção na tabela rota
         elif opcao == '6':
-            pass
+            tabela = 'rota'
+
+            # Looping de inserção de dados:
+            while True:
+                cidade_partida = input(
+                    'Digite o nome da cidade de partida: ').strip().lower()
+
+                cidade_chegada = input(
+                    'Digite o nome da cidade de chegada: ').strip().lower()
+
+                duracao = input(
+                    'Digite a duração estimada do voo (00h 00m): '
+                ).strip().lower()
+
+                # Salvando ums copia das informações em dados e limpando informacao:
+                informacao = (cidade_partida, cidade_chegada, duracao)
+                dados.append(informacao)
+                informacao = ()
+
+                # Dando ao usuário a opção de adicionar mais dados:
+                opcao = input(
+                    'Deseja adicionar mais dados na tabela avião(s/n): '
+                ).strip().lower()
+                if opcao == 's':
+                    continue
+                else:
+                    break
 
         else:
             pass

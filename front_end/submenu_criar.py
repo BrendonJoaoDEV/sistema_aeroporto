@@ -5,11 +5,12 @@
 # Módulo onde será definida a função que recebe e trata os dados da opção criar do menu principal.
 
 # Definição da função:
-def opcao_1():
+def submenu_1():
     # Importação da função exibir_tabela:
     from front_end.exibir_tabela import exibir_tabela
 
     # Declaração de variáveis auxiliares e de retorno:
+    opcao = ''
     tabela = ''
     dados = []
     informacao = ()
@@ -17,6 +18,7 @@ def opcao_1():
     # Looping da função
     while True:
         # Menu da função:
+        print('<::::::::::> CRIAR <::::::::::>')
         print('Em qual tabela você deseja inserir dados?')
         print('0 - Voltar')
         print('1 - Viajante')
@@ -39,6 +41,8 @@ def opcao_1():
 
             # Looping de inserção de dados:
             while True:
+                print('<::::::::::> VIAJANTE <::::::::::>')
+                
                 nome = input('Digite o nome do viajante: ').strip().lower()
 
                 cpf = input('Digite o cpf do viajante: ').strip().lower()
@@ -68,8 +72,11 @@ def opcao_1():
             # Looping de inserção de dados:
             while True:
                 # Exibe a tabela viajante para permitir a correta relação entre viajante e telefone:
+                print('<::::::::::> VIAJANTE <::::::::::>')
                 exibir_tabela('viajante')
 
+                print('<::::::::::> TELEFONE <::::::::::>')
+                
                 id_viajante = input(
                     'Digite o id do viajante dono do telefone: '
                 ).strip().lower()
@@ -97,6 +104,8 @@ def opcao_1():
 
             # Looping de inserção de dados:
             while True:
+                print('<::::::::::> COMPANHIA <::::::::::>')
+                
                 nome = input(
                     'Digite o nome da companhia aérea: ').strip().lower()
 
@@ -121,8 +130,11 @@ def opcao_1():
             # Looping de inserção de dados:
             while True:
                 # Exibe a tabela companhia para permitir a correta relação entre companhia e aviao:
+                print('<::::::::::> COMPANHIA <::::::::::>')
                 exibir_tabela('companhia')
 
+                print('<::::::::::> AVIÃO <::::::::::>')
+                
                 id_companhia = input(
                     'Digite o id da companhia dona do avião: '
                 ).strip().lower()
@@ -162,17 +174,22 @@ def opcao_1():
             # Looping de inserção de dados:
             while True:
                 # Exibe a tabela viajante para a correta relação entre viajante e passagem:
+                print('<::::::::::> VIAJANTE <::::::::::>')
                 exibir_tabela('viajante')
+
+                print('<::::::::::> PASSAGEM <::::::::::>')
 
                 id_viajante = input(
                     'Digite o id do viajante: ').strip().lower()
 
                 # Exibe a tabela aviao para a correta relação entre aviao e passagem:
+                print('<::::::::::> AVIÃO <::::::::::>')
                 exibir_tabela('aviao')
 
                 id_aviao = input('Digite o id do avião: ').strip().lower()
 
                 # Exibe a tabela rota para a correta relação entre rota e passagem:
+                print('<::::::::::> ROTA <::::::::::>')
                 exibir_tabela('rota')
 
                 id_rota = input('Digite o id da rota: ').strip().lower()
@@ -234,6 +251,8 @@ def opcao_1():
 
             # Looping de inserção de dados:
             while True:
+                print('<::::::::::> ROTA <::::::::::>')
+                
                 cidade_partida = input(
                     'Digite o nome da cidade de partida: ').strip().lower()
 
@@ -259,7 +278,7 @@ def opcao_1():
                     break
 
         else:
-            pass
+            print('Opção inválida: digite apenas números!')
 
     # retorno da função
     return tabela, dados

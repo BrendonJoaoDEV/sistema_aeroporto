@@ -8,15 +8,18 @@
 def submenu_1():
     # Importação da função exibir_tabela:
     from front_end.exibir_tabela import exibir_tabela
+    from front_end.limpar_terminal import limpar_terminal
 
     # Declaração de variáveis auxiliares e de retorno:
     opcao = ''
     tabela = ''
     dados = []
     informacao = ()
+    principal = True  # Flag do looping principal
 
     # Looping da função
-    while True:
+    while principal:
+        limpar_terminal()
         # Menu da função:
         print('<::::::::::> CRIAR <::::::::::>')
         print('Em qual tabela você deseja inserir dados?')
@@ -41,8 +44,9 @@ def submenu_1():
 
             # Looping de inserção de dados:
             while True:
+                limpar_terminal()
                 print('<::::::::::> VIAJANTE <::::::::::>')
-                
+
                 nome = input('Digite o nome do viajante: ').strip().lower()
 
                 cpf = input('Digite o cpf do viajante: ').strip().lower()
@@ -63,6 +67,7 @@ def submenu_1():
                 if opcao == 's':
                     continue
                 else:
+                    principal = False
                     break
 
         # Inserção na tabela telefone:
@@ -71,12 +76,13 @@ def submenu_1():
 
             # Looping de inserção de dados:
             while True:
+                limpar_terminal()
                 # Exibe a tabela viajante para permitir a correta relação entre viajante e telefone:
                 print('<::::::::::> VIAJANTE <::::::::::>')
                 exibir_tabela('viajante')
 
                 print('<::::::::::> TELEFONE <::::::::::>')
-                
+
                 id_viajante = input(
                     'Digite o id do viajante dono do telefone: '
                 ).strip().lower()
@@ -96,6 +102,7 @@ def submenu_1():
                 if opcao == 's':
                     continue
                 else:
+                    principal = False
                     break
 
         # Inserção na tabela companhia:
@@ -104,13 +111,14 @@ def submenu_1():
 
             # Looping de inserção de dados:
             while True:
+                limpar_terminal()
                 print('<::::::::::> COMPANHIA <::::::::::>')
-                
+
                 nome = input(
                     'Digite o nome da companhia aérea: ').strip().lower()
 
                 # Salvando uma copia das informações em dados e limpando informacao:
-                informacao = (nome)
+                informacao = (nome, )
                 dados.append(informacao)
                 informacao = ()
 
@@ -121,6 +129,7 @@ def submenu_1():
                 if opcao == 's':
                     continue
                 else:
+                    principal = False
                     break
 
         # Inserção na tabela aviao:
@@ -129,12 +138,13 @@ def submenu_1():
 
             # Looping de inserção de dados:
             while True:
+                limpar_terminal()
                 # Exibe a tabela companhia para permitir a correta relação entre companhia e aviao:
                 print('<::::::::::> COMPANHIA <::::::::::>')
                 exibir_tabela('companhia')
 
                 print('<::::::::::> AVIÃO <::::::::::>')
-                
+
                 id_companhia = input(
                     'Digite o id da companhia dona do avião: '
                 ).strip().lower()
@@ -165,6 +175,7 @@ def submenu_1():
                 if opcao == 's':
                     continue
                 else:
+                    principal = False
                     break
 
         # Inserção na tabela passagem:
@@ -173,6 +184,7 @@ def submenu_1():
 
             # Looping de inserção de dados:
             while True:
+                limpar_terminal()
                 # Exibe a tabela viajante para a correta relação entre viajante e passagem:
                 print('<::::::::::> VIAJANTE <::::::::::>')
                 exibir_tabela('viajante')
@@ -196,26 +208,26 @@ def submenu_1():
 
                 data_hora_partida = input(
                     'Digite a data e hora de partida (aaaa/mm/dd - hh/mm): '
-                    ).strip().lower()
+                ).strip().lower()
 
                 data_hora_chegada = input(
                     'Digite a data e hora de chegada (aaaa/mm/dd - hh/mm): '
-                    ).strip().lower()
+                ).strip().lower()
 
                 data_hora_volta = input(
                     'Digite a data e hora de volta (aaaa/mm/dd - hh/mm): '
-                    ).strip().lower()
+                ).strip().lower()
 
                 numero_paradas = input(
                     'Digite o número de paradas do voo: ').strip().lower()
 
                 assentos_diponiveis = input(
                     'Digite o número de assentos disponíveis: '
-                    ).strip().lower()
+                ).strip().lower()
 
                 preco = input(
                     'Digite o preço da passagem (R$ 00000.00): '
-                    ).strip().lower()
+                ).strip().lower()
 
                 print('<::::::::::> FORMAS DE PAGAMENTO <::::::::::>')
                 print('1 - Pix')
@@ -231,18 +243,20 @@ def submenu_1():
 
                 # Salvando uma copia das informações em dados e limpando informacao:
                 informacao = (id_viajante, id_aviao, id_rota,
-                            data_hora_partida, data_hora_chegada, 
-                            data_hora_volta, numero_paradas,
-                            assentos_diponiveis, preco, forma_pagamento)
+                              data_hora_partida, data_hora_chegada,
+                              data_hora_volta, numero_paradas,
+                              assentos_diponiveis, preco, forma_pagamento)
                 dados.append(informacao)
                 informacao = ()
 
                 # Dando ao usuário a opção de adicionar mais dados:
                 opcao = input(
-                    'Deseja adicionar mais dados na tabela passagem (s/n): ').strip().lower()
+                    'Deseja adicionar mais dados na tabela passagem (s/n): '
+                    ).strip().lower()
                 if opcao == 's':
                     continue
                 else:
+                    principal = False
                     break
 
         # Inserção na tabela rota
@@ -251,8 +265,9 @@ def submenu_1():
 
             # Looping de inserção de dados:
             while True:
+                limpar_terminal()
                 print('<::::::::::> ROTA <::::::::::>')
-                
+
                 cidade_partida = input(
                     'Digite o nome da cidade de partida: ').strip().lower()
 
@@ -275,6 +290,7 @@ def submenu_1():
                 if opcao == 's':
                     continue
                 else:
+                    principal = False
                     break
 
         else:

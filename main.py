@@ -58,6 +58,7 @@ while True:
         back_end.criar(tabela, dados)
 
         # Mensagem de sucesso:
+        print()
         print('Dados inseridos com sucesso!')
         input('Pressione qualquer tecla para continuar...')
         continue
@@ -70,6 +71,7 @@ while True:
         back_end.atualizar(tabela, identificador, dados)
 
         # Mensagem de sucesso:
+        print()
         print('Dados atualizados com sucesso!')
         input('Pressione qualquer tecla para continuar...')
         continue
@@ -87,6 +89,7 @@ while True:
         back_end.deletar(tabela, identificador)
 
         # Mensagem de sucesso:
+        print()
         print('dados deletados com sucesso!')
         input('Pressione qualquer tecla para continuar...')
         continue

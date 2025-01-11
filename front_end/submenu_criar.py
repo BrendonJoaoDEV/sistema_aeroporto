@@ -214,15 +214,15 @@ def submenu_criar():
                 id_rota = input('Digite o id da rota: ').strip().lower()
 
                 data_hora_partida = input(
-                    'Digite a data e hora de partida (aaaa/mm/dd - hh/mm): '
+                    'Digite a data e hora de partida (aaaa/mm/dd - hh:mm): '
                 ).strip().lower()
 
                 data_hora_chegada = input(
-                    'Digite a data e hora de chegada (aaaa/mm/dd - hh/mm): '
+                    'Digite a data e hora de chegada (aaaa/mm/dd - hh:mm): '
                 ).strip().lower()
 
                 data_hora_volta = input(
-                    'Digite a data e hora de volta (aaaa/mm/dd - hh/mm): '
+                    'Digite a data e hora de volta (aaaa/mm/dd - hh:mm): '
                 ).strip().lower()
 
                 numero_paradas = input(

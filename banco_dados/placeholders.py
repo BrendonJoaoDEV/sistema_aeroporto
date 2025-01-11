@@ -120,8 +120,8 @@ selects = {
                     data_hora_chegada AS "data e hora de chegada",
                     data_hora_volta AS "dara e hora de volta",
                     numero_paradas AS "número de paradas",
-                    assentos_disponiveis AS "assentos disponíveis"
-                    preco AS "preço"
+                    assentos_disponiveis AS "assentos disponíveis",
+                    preco AS "preço",
                     forma_pagamento AS "forma de pagamento"
                     FROM passagem'''
 }

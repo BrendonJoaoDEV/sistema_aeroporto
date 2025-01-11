@@ -90,7 +90,7 @@ def submenu_deletar():
                     break
 
         elif opcao == '3':
-            tabela = 'Companhia'
+            tabela = 'companhia'
 
             while True:
                 # Exibindo a tabela companhia:

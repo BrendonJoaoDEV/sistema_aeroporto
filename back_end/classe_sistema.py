@@ -15,14 +15,14 @@ class Sistema:
     def __init__(self):
         pass
     
-    def criar(self):
-        return criar_registro()
+    def criar(self, tabela, dados):
+        criar_registro(tabela, dados)
     
-    def ler(self):
-        return visualizar_registro()
+    def ler(self, tabela):
+        visualizar_registro(tabela)
     
-    def atualizar(self):
-        return atualizar_registro()
+    def atualizar(self, tabela, identificador, dados):
+        atualizar_registro(tabela, identificador, dados)
     
-    def deletar(self):
-        return deletar_registro()
+    def deletar(self, tabela, identificador):
+        deletar_registro(tabela, identificador)

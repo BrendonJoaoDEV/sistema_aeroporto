@@ -18,16 +18,19 @@ class Menu:
         pass
 
     def limpar_terminal(self):
-        return limpar_terminal
+        return limpar_terminal()
 
     def submenu_criar(self):
-        return submenu_criar
+        tabela, dados = submenu_criar()
+        return tabela, dados
 
     def submenu_atualizar(self):
-        return submenu_atualizar
+        tabela, identificador, dados = submenu_atualizar()
+        return tabela, identificador, dados
 
     def submenu_visualizar(self):
-        return submenu_visualizar
+        submenu_visualizar()
 
     def submenu_deletar(self):
-        return submenu_deletar
+        tabela, identificador = submenu_deletar()
+        return tabela, identificador

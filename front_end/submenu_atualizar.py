@@ -139,12 +139,12 @@ def submenu_atualizar():
 
                     # Pedindo os novos dados:
                     id_viajante = input(
-                        f'Digite o novo id do viajante ou enter para 
-                        {resultado[1]}: ').strip().lower() or resultado[1]
+                        'Digite o novo id do viajante ou enter para ' +
+                        f'{resultado[1]}: ').strip().lower() or resultado[1]
 
                     telefone = input(
-                        f'Digite o novo telefone ou enter para 
-                        {resultado[2]}: ').strip().lower() or resultado[2]
+                        'Digite o novo telefone ou enter para ' +
+                        f'{resultado[2]}: ').strip().lower() or resultado[2]
 
                     # Salvando os novos dados:
                     informacao = (id_viajante, telefone)
@@ -194,8 +194,8 @@ def submenu_atualizar():
 
                     # Pedindo os novos dados:
                     nome = input(
-                        f'Digite o novo nome da companhia ou enter para 
-                        {resultado[1]}').strip().lower() or resultado[1]
+                        'Digite o novo nome da companhia ou enter para ' +
+                        f'{resultado[1]}').strip().lower() or resultado[1]
 
                     # Salvando os novos dados:
                     informacao = (nome, )
@@ -244,29 +244,30 @@ def submenu_atualizar():
                     # Pedindo os novos dados:
 
                     id_companhia = input(
-                        f'Digite a nova companhia ou enter para 
-                        {resultado[1]}: ').strip().lower() or resultado[1]
+                        'Digite a nova companhia ou enter para ' +
+                        f'{resultado[1]}: ').strip().lower() or resultado[1]
 
                     nome = input(
-                        f'Digite o novo nome do avião ou enter para 
-                        {resultado[2]}: ').strip().lower() or resultado[2]
+                        'Digite o novo nome do avião ou enter para ' +
+                        f'{resultado[2]}: ').strip().lower() or resultado[2]
 
                     modelo = input(
-                        f'Digite o novo modelo do avião ou enter para 
-                        {resultado[3]}: ').strip().lower() or resultado[3]
+                        'Digite o novo modelo do avião ou enter para ' +
+                        f'{resultado[3]}: ').strip().lower() or resultado[3]
 
                     fabricacao = input(
-                        f'Digite o novo ano de fabricação do avião ou enter 
-                        para {resultado[4]}: '
+                        'Digite o novo ano de fabricação do avião ou enter ' +
+                        f'para {resultado[4]}: '
                         ).strip().lower() or resultado[4]
 
                     voos = input(
-                        f'Digite o novo número de voos do avião ou enter para 
-                        {resultado[5]}: ').strip().lower() or resultado[5]
+                        'Digite o novo número de voos do avião ou enter ' +
+                        f'para {resultado[5]}: '
+                        ).strip().lower() or resultado[5]
 
                     assentos = input(
-                        f'Digite o novo número de assentos do avião ou enter
-                        para {resultado[6]}: '
+                        'Digite o novo número de assentos do avião ou ' +
+                        f'enter para {resultado[6]}: '
                         ).strip().lower() or resultado[6]
 
                     # Salvando os novos dados:
@@ -318,46 +319,46 @@ def submenu_atualizar():
                     # Pedindo os novos dados:
                     exibir_tabela('viajante')
                     id_viajante = input(
-                        f'Digite o id do novo viajante ou enter para 
-                        {resultado[1]}: ').strip().lower() or resultado[1]
+                        'Digite o id do novo viajante ou enter para '
+                        f'{resultado[1]}: ').strip().lower() or resultado[1]
                     
                     exibir_tabela('aviao')
                     id_aviao = input(
-                        f'Digite o id do novo avião ou enter para 
-                        {resultado[2]}: ').strip().lower() or resultado[2]
+                        'Digite o id do novo avião ou enter para '
+                        f'{resultado[2]}: ').strip().lower() or resultado[2]
                     
                     exibir_tabela('rota')
                     id_rota = input(
-                        f'Digite o id da nova rota ou enter para 
-                        {resultado[3]}: ').strip().lower() or resultado[3]
+                        'Digite o id da nova rota ou enter para '
+                        f'{resultado[3]}: ').strip().lower() or resultado[3]
                     
                     data_hora_partida = input(
-                        f'Digite a nova data e hora de partida 
-                        (aaaa/mm/dd - hh/mm) ou enter para {resultado[4]}: '
+                        'Digite a nova data e hora de partida '
+                        f'(aaaa/mm/dd - hh/mm) ou enter para {resultado[4]}: '
                         ).strip().lower() or resultado[4]
                     
                     data_hora_chegada = input(
-                        f'Digite a nova data e hora de chegada 
-                        (aaaa/mm/dd - hh/mm) ou enter para {resultado[5]}: '
+                        'Digite a nova data e hora de chegada '
+                        f'(aaaa/mm/dd - hh/mm) ou enter para {resultado[5]}: '
                         ).strip().lower() or resultado[5]
                     
                     data_hora_volta = input(
-                        f'Digite a nova data e hora de volta 
-                        (aaaa/mm/dd - hh/mm) ou enter para {resultado[6]}: '
+                        'Digite a nova data e hora de volta '
+                        f'(aaaa/mm/dd - hh/mm) ou enter para {resultado[6]}: '
                         ).strip().lower() or resultado[6]
                     
                     paradas = input(
-                        f'Digite o novo número de paradas ou enter para 
-                        {resultado[7]}: ').strip().lower() or resultado[7]
+                        'Digite o novo número de paradas ou enter para '
+                        f'{resultado[7]}: ').strip().lower() or resultado[7]
                     
                     assentos = input(
-                        f'Digite o novo número de assentos disponíveis 
-                        ou enter para {resultado[8]}: '
+                        'Digite o novo número de assentos disponíveis '
+                        f'ou enter para {resultado[8]}: '
                         ).strip().lower() or resultado[8]
                     
                     preco = input(
-                        f'Digite o novo preço (R$ 00000.00) ou enter para 
-                        {resultado[9]}: ').strip().lower() or resultado[9]
+                        'Digite o novo preço (R$ 00000.00) ou enter para '
+                        f'{resultado[9]}: ').strip().lower() or resultado[9]
                     
                     print('<::::::::::> FORMAS DE PAGAMENTO <::::::::::>')
                     print('1 - Pix')
@@ -369,8 +370,8 @@ def submenu_atualizar():
                     print('7 - Parcelamento')
 
                     forma_pagamento = input(
-                        f'Digite o n° da forma de pagamento ou enter para 
-                        {resultado[10]}: ').strip().lower() or resultado[10]
+                        'Digite o n° da forma de pagamento ou enter para '
+                        f'{resultado[10]}: ').strip().lower() or resultado[10]
 
                     # Salvando os novos dados:
                     informacao = (id_viajante, id_aviao, id_rota,
@@ -420,16 +421,16 @@ def submenu_atualizar():
                     
                     # Pedindo os novos dados:
                     cidade_partida = input(
-                        f'Digite a nova cidade de partida ou enter para 
-                        {resultado[1]}: ').strip().lower() or resultado[1]
+                        'Digite a nova cidade de partida ou enter para '
+                        f'{resultado[1]}: ').strip().lower() or resultado[1]
                 
                     cidade_chegada = input(
-                        f'Digite a nova cidade de chegada ou enter para 
-                        {resultado[2]}: ').strip().lower() or resultado[2]
+                        'Digite a nova cidade de chegada ou enter para '
+                        f'{resultado[2]}: ').strip().lower() or resultado[2]
                     
                     duracao = input(
-                        f'Digite a nova duração da rota ou enter para 
-                        {resultado[3]}: ').strip().lower() or resultado[3]
+                        'Digite a nova duração da rota ou enter para '
+                        f'{resultado[3]}: ').strip().lower() or resultado[3]
                     
                     # Salvando os novos dados:
                     informacao = (cidade_partida, cidade_chegada, duracao)

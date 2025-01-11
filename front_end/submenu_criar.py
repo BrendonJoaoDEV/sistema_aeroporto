@@ -5,8 +5,8 @@
 # Módulo onde será definida a função que recebe e trata os dados da opção criar do menu principal.
 
 # Definição da função:
-def submenu_1():
-    # Importação da função exibir_tabela:
+def submenu_criar():
+    # Importação de módulos:
     from front_end.exibir_tabela import exibir_tabela
     from front_end.limpar_terminal import limpar_terminal
 
@@ -295,6 +295,8 @@ def submenu_1():
 
         else:
             print('Opção inválida: digite apenas números!')
+            input('Pressione qualquer tecla para continuar...')
+            continue
 
     # retorno da função
     return tabela, dados

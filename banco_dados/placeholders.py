@@ -101,7 +101,7 @@ selects = {
                 modelo_aviao AS "modelo",
                 ano_fabricacao AS "ano de fabricação",
                 numero_voos AS "número de voos",
-                numero assentos AS "número de assentos"
+                numero_assentos AS "número de assentos"
                 FROM aviao''',
 
     'rota': '''SELECT

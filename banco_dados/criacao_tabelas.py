@@ -73,7 +73,7 @@ def criar_banco():
             data_hora_chegada TEXT,
             data_hora_volta TEXT,
             numero_paradas INTEGER,
-            assentos_diponiveis INTEGER,
+            assentos_disponiveis INTEGER,
             preco REAL,
             forma_pagamento TEXT,
             FOREIGN KEY (id_viajante) REFERENCES viajante(id_viajante),

@@ -65,10 +65,10 @@ while True:
 
     elif opcao == '2':
         # Desempacotando os retornos da função  submenu_atualizar:
-        tabela, identificador, dados = front_end.submenu_atualizar()
+        tabela, dados = front_end.submenu_atualizar()
 
         # Passando esses retornos para a função atualizar:
-        back_end.atualizar(tabela, identificador, dados)
+        back_end.atualizar(tabela, dados)
 
         # Mensagem de sucesso:
         print()
@@ -97,3 +97,5 @@ while True:
     else:
         print('Opção inválida: por favor digite' +
               'apenas o número correspondente a uma opção!')
+        input('Pressione qualquer tecla para continuar...')
+        continue

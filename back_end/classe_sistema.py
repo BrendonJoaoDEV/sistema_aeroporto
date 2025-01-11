@@ -21,8 +21,8 @@ class Sistema:
     def ler(self, tabela):
         visualizar_registro(tabela)
     
-    def atualizar(self, tabela, identificador, dados):
-        atualizar_registro(tabela, identificador, dados)
+    def atualizar(self, tabela, dados):
+        atualizar_registro(tabela, dados)
     
     def deletar(self, tabela, identificador):
         deletar_registro(tabela, identificador)

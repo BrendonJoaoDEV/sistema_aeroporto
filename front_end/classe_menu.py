@@ -25,8 +25,8 @@ class Menu:
         return tabela, dados
 
     def submenu_atualizar(self):
-        tabela, identificador, dados = submenu_atualizar()
-        return tabela, identificador, dados
+        tabela, dados = submenu_atualizar()
+        return tabela, dados
 
     def submenu_visualizar(self):
         submenu_visualizar()

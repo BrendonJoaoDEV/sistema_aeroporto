@@ -5,7 +5,7 @@
 # Módulo onde será definida a função que atualiza registros existentes no banco:
 
 # Definição da função:
-def atualizar_registro(tabela, identificador, novo_registro):
+def atualizar_registro(tabela, novo_registro):
     """Atualizar registro
 
     Args:
@@ -27,27 +27,27 @@ def atualizar_registro(tabela, identificador, novo_registro):
 
     # Encontrando a tabela e o registro para atualizar:
     if tabela == 'viajante':
-        cursor.executemany(updates['viajante'], novo_registro, identificador)
+        cursor.executemany(updates['viajante'], novo_registro)
         resposta = 'Atualização concluída'
 
     elif tabela == 'telefone':
-        cursor.executemany(updates['telefone'], novo_registro, identificador)
+        cursor.executemany(updates['telefone'], novo_registro)
         resposta = 'Atualização concluída'
 
     elif tabela == 'companhia':
-        cursor.executemany(updates['companhia'], novo_registro, identificador)
+        cursor.executemany(updates['companhia'], novo_registro)
         resposta = 'Atualização concluída'
 
     elif tabela == 'aviao':
-        cursor.executemany(updates['aviao'], novo_registro, identificador)
+        cursor.executemany(updates['aviao'], novo_registro)
         resposta = 'Atualização concluída'
 
     elif tabela == 'rota':
-        cursor.executemany(updates['rota'], novo_registro, identificador)
+        cursor.executemany(updates['rota'], novo_registro)
         resposta = 'Atualização concluída'
 
     elif tabela == 'passagem':
-        cursor.executemany(updates['passagem'], novo_registro, identificador)
+        cursor.executemany(updates['passagem'], novo_registro)
         resposta = 'Atualização concluída'
 
     else:

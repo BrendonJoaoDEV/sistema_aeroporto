@@ -15,13 +15,7 @@ def submenu_atualizar():
     
     # Importação de módulos:
     from front_end.exibir_tabela import exibir_tabela
-    from front_end.exibir_dados import exibir_dados
     from front_end.limpar_terminal import limpar_terminal
-    import sqlite3
-
-    # Criando conexão com banco de daods:
-    conexao = sqlite3.connect('banco_dados/bancos_dados.db')
-    cursor = conexao.cursor()
 
     # Declaração de variáveis auxiliares e de retorno:
     opcao = ''
@@ -63,54 +57,29 @@ def submenu_atualizar():
                     'Qual o id do viajante que deseja alterar? '
                     ).strip().lower()
 
-                # Consulta SQL para encontrar e trazer os dados do viajante:
-                cursor.execute(
-                    'SELECT * FROM viajante WHERE id_viajante = ?',
-                    identificador)
-                resultado = cursor.fetchone()
+                # Pedindo os novos dados:
+                nome = input('Digite o novo nome: ').strip().lower()
 
-                # Verificando se os dados foram encontrados:
-                if resultado[0] == int(identificador):
-                    # Exibindo os dados do viajante selecionado:
-                    exibir_dados(resultado, cursor)
+                cpf = input('Digite o novo cpf: ').strip().lower()
 
-                    # Pedindo os novos dados:
-                    nome = input(
-                        f'Digite o novo nome ou enter para {resultado[1]}: '
-                        ).strip().lower() or resultado[1]
+                idade = input('Digite a nova idade: ').strip().lower()
 
-                    cpf = input(
-                        f'Digite o novo cpf ou enter para {resultado[2]}: '
-                        ).strip().lower() or resultado[2]
+                email = input('Digite o novo email: ').strip().lower()
 
-                    idade = input(
-                        f'Digite a nova idade ou enter para {resultado[3]}: '
-                        ).strip().lower() or resultado[3]
+                # Salvando os novos dados
+                informacao = (nome, cpf, idade, email, identificador)
+                novos_dados.append(informacao)
+                informacao = ()
 
-                    email = input(
-                        f'Digite o novo email ou enter para {resultado[4]}: '
-                        ).strip().lower() or resultado[4]
-
-                    # Salvando os novos dados
-                    informacao = (nome, cpf, idade, email)
-                    novos_dados.append(informacao)
-                    informacao = ()
-
-                    # Dando ao usuário a opção de alterar outro viajante
-                    opcao = input(
-                        'Deseja alterar outro viajante (s/n): '
-                        ).strip().lower()
-                    if opcao == 's':
-                        continue
-                    else:
-                        principal = False
-                        break
-
-                # Informando que o viajante não foi encontrado:
-                else:
-                    print('Viajante não encontrado!')
-                    input('Pressione qualquer tecla para continuar...')
+                # Dando ao usuário a opção de alterar outro viajante
+                opcao = input(
+                    'Deseja alterar outro viajante (s/n): '
+                    ).strip().lower()
+                if opcao == 's':
                     continue
+                else:
+                    principal = False
+                    break
 
         elif opcao == '2':
             tabela = 'telefone'
@@ -125,47 +94,28 @@ def submenu_atualizar():
                 identificador = input(
                     'Qual o id do telefone que deseja alterar? '
                     ).strip().lower()
+                
+                # Pedindo os novos dados:
+                exibir_tabela('viajante')
+                id_viajante = input('Digite o novo id do viajante: '
+                                    ).strip().lower()
 
-                # Consulta SQL para encontrar e trazer os dados do telefone:
-                cursor.execute(
-                    'SELECT * FROM telefone WHERE id_telefone = ?',
-                    identificador)
-                resultado = cursor.fetchone()
+                telefone = input('Digite o novo telefone: ').strip().lower()
 
-                # Verificando se os dados foram encontrados:
-                if resultado[0] == int(identificador):
-                    # Exibindo os dados do telefone selecionado:
-                    exibir_dados(resultado, cursor)
+                # Salvando os novos dados:
+                informacao = (id_viajante, telefone, identificador)
+                novos_dados.append(informacao)
+                informacao = ()
 
-                    # Pedindo os novos dados:
-                    id_viajante = input(
-                        'Digite o novo id do viajante ou enter para ' +
-                        f'{resultado[1]}: ').strip().lower() or resultado[1]
-
-                    telefone = input(
-                        'Digite o novo telefone ou enter para ' +
-                        f'{resultado[2]}: ').strip().lower() or resultado[2]
-
-                    # Salvando os novos dados:
-                    informacao = (id_viajante, telefone)
-                    novos_dados.append(informacao)
-                    informacao = ()
-
-                    # Dando ao usuário a opção de alterar outro telefone:
-                    opcao = input(
-                        'Deseja alterar outro telefone (s/n): '
-                        ).strip().lower()
-                    if opcao == 's':
-                        continue
-                    else:
-                        principal = False
-                        break
-
-                # Informando que o telefone não foi encontrado:
-                else:
-                    print('Telefone não encontrado!')
-                    input('Pressione qualquer tecla para continuar...')
+                # Dando ao usuário a opção de alterar outro telefone:
+                opcao = input(
+                    'Deseja alterar outro telefone (s/n): '
+                    ).strip().lower()
+                if opcao == 's':
                     continue
+                else:
+                    principal = False
+                    break
 
         elif opcao == '3':
             tabela = 'companhia'
@@ -181,42 +131,23 @@ def submenu_atualizar():
                     'Qual o id da companhia que deseja alterar? '
                     ).strip().lower()
 
-                # Consulta SQL para encontrar e trazer os dados da companhia:
-                cursor.execute(
-                    'SELECT * FROM companhia WHERE id_companhia = ?', 
-                    identificador)
-                resultado = cursor.fetchone()
+                # Pedindo os novos dados:
+                nome = input('Digite o novo nome da companhia: ').strip().lower()
 
-                # Verificando se os dados foram encontrados:
-                if resultado[0] == int(identificador):
-                    # Exibindo os dados da companhia selecionada:
-                    exibir_dados(resultado, cursor)
+                # Salvando os novos dados:
+                informacao = (nome, identificador)
+                novos_dados.append(informacao)
+                informacao = ()
 
-                    # Pedindo os novos dados:
-                    nome = input(
-                        'Digite o novo nome da companhia ou enter para ' +
-                        f'{resultado[1]}').strip().lower() or resultado[1]
-
-                    # Salvando os novos dados:
-                    informacao = (nome, )
-                    novos_dados.append(informacao)
-                    informacao = ()
-
-                    # Dando ao usuário a opção de alterar outra companhia:
-                    opcao = input(
-                        'Deseja alterar outra companhia (s/n): '
-                        ).strip().lower()
-                    if opcao == 's':
-                        continue
-                    else:
-                        principal = False
-                        break
-
-                # Informando que a companhia não foi encontrada:
-                else:
-                    print('Companhia não encontrada!')
-                    input('Pressione qualquer tecla para continuar...')
+                # Dando ao usuário a opção de alterar outra companhia:
+                opcao = input(
+                    'Deseja alterar outra companhia (s/n): '
+                    ).strip().lower()
+                if opcao == 's':
                     continue
+                else:
+                    principal = False
+                    break
 
         elif opcao == '4':
             tabela = 'aviao'
@@ -231,65 +162,41 @@ def submenu_atualizar():
                 identificador = input(
                     'Qual o id do avião que deseja alterar? ').strip().lower()
 
-                # Consulta SQL para encontrar e trazer os dados do avião:
-                cursor.execute(
-                    'SELECT * FROM aviao WHERE id_aviao = ?', identificador)
-                resultado = cursor.fetchone()
+                # Pedindo os novos dados:
+                exibir_tabela('companhia')
+                id_companhia = input('Digite a nova companhia: '
+                                     ).strip().lower()
 
-                # Verificando se os dados foram encontrados:
-                if resultado[0] == int(identificador):
-                    # Exibindo os dados do avião selecionada:
-                    exibir_dados(resultado, cursor)
+                nome = input('Digite o novo nome do avião: ').strip().lower()
 
-                    # Pedindo os novos dados:
+                modelo = input('Digite o novo modelo do avião: '
+                               ).strip().lower()
 
-                    id_companhia = input(
-                        'Digite a nova companhia ou enter para ' +
-                        f'{resultado[1]}: ').strip().lower() or resultado[1]
+                fabricacao = input(
+                    'Digite o novo ano de fabricação do avião: '
+                    ).strip().lower()
 
-                    nome = input(
-                        'Digite o novo nome do avião ou enter para ' +
-                        f'{resultado[2]}: ').strip().lower() or resultado[2]
+                voos = input('Digite o novo número de voos do avião: '
+                             ).strip().lower()
 
-                    modelo = input(
-                        'Digite o novo modelo do avião ou enter para ' +
-                        f'{resultado[3]}: ').strip().lower() or resultado[3]
+                assentos = input('Digite o novo número de assentos do avião: '
+                                 ).strip().lower()
 
-                    fabricacao = input(
-                        'Digite o novo ano de fabricação do avião ou enter ' +
-                        f'para {resultado[4]}: '
-                        ).strip().lower() or resultado[4]
+                # Salvando os novos dados:
+                informacao = (id_companhia, nome, modelo,
+                                fabricacao, voos, assentos,
+                                identificador)
+                novos_dados.append(informacao)
+                informacao = ()
 
-                    voos = input(
-                        'Digite o novo número de voos do avião ou enter ' +
-                        f'para {resultado[5]}: '
-                        ).strip().lower() or resultado[5]
-
-                    assentos = input(
-                        'Digite o novo número de assentos do avião ou ' +
-                        f'enter para {resultado[6]}: '
-                        ).strip().lower() or resultado[6]
-
-                    # Salvando os novos dados:
-                    informacao = (id_companhia, nome, modelo,
-                                  fabricacao, voos, assentos)
-                    novos_dados.append(informacao)
-                    informacao = ()
-
-                    # Dando ao usuário a opção de alterar outro avião:
-                    opcao = input(
-                        'Deseja alterar outro avião (s/n): ').strip().lower()
-                    if opcao == 's':
-                        continue
-                    else:
-                        principal = False
-                        break
-
-                # Informando que o avião não foi encontrada:
-                else:
-                    print('Avião não encontrado!')
-                    input('Pressione qualquer tecla para continuar...')
+                # Dando ao usuário a opção de alterar outro avião:
+                opcao = input(
+                    'Deseja alterar outro avião (s/n): ').strip().lower()
+                if opcao == 's':
                     continue
+                else:
+                    principal = False
+                    break
 
         elif opcao == '5':
             tabela == 'passagem'
@@ -305,97 +212,69 @@ def submenu_atualizar():
                     'Qual o id da passagem que deseja alterar? '
                     ).strip().lower()
                 
-                # Consulta SQL para encontrar e trazer os dados da passagem:
-                cursor.execute(
-                    'SELECT * FROM passagem WHERE id_passagem = ?', 
-                    identificador)
-                resultado = cursor.fetchone()
+                # Pedindo os novos dados:
+                exibir_tabela('viajante')
+                id_viajante = input('Digite o id do novo viajante: '
+                                    ).strip().lower()
                 
-                # Verificando se os dados foram encontrados:
-                if resultado[0] == int(identificador):
-                    # Exibindo os dados da passagem selecionada:
-                    exibir_dados(resultado, cursor)
-                    
-                    # Pedindo os novos dados:
-                    exibir_tabela('viajante')
-                    id_viajante = input(
-                        'Digite o id do novo viajante ou enter para '
-                        f'{resultado[1]}: ').strip().lower() or resultado[1]
-                    
-                    exibir_tabela('aviao')
-                    id_aviao = input(
-                        'Digite o id do novo avião ou enter para '
-                        f'{resultado[2]}: ').strip().lower() or resultado[2]
-                    
-                    exibir_tabela('rota')
-                    id_rota = input(
-                        'Digite o id da nova rota ou enter para '
-                        f'{resultado[3]}: ').strip().lower() or resultado[3]
-                    
-                    data_hora_partida = input(
-                        'Digite a nova data e hora de partida '
-                        f'(aaaa/mm/dd - hh/mm) ou enter para {resultado[4]}: '
-                        ).strip().lower() or resultado[4]
-                    
-                    data_hora_chegada = input(
-                        'Digite a nova data e hora de chegada '
-                        f'(aaaa/mm/dd - hh/mm) ou enter para {resultado[5]}: '
-                        ).strip().lower() or resultado[5]
-                    
-                    data_hora_volta = input(
-                        'Digite a nova data e hora de volta '
-                        f'(aaaa/mm/dd - hh/mm) ou enter para {resultado[6]}: '
-                        ).strip().lower() or resultado[6]
-                    
-                    paradas = input(
-                        'Digite o novo número de paradas ou enter para '
-                        f'{resultado[7]}: ').strip().lower() or resultado[7]
-                    
-                    assentos = input(
-                        'Digite o novo número de assentos disponíveis '
-                        f'ou enter para {resultado[8]}: '
-                        ).strip().lower() or resultado[8]
-                    
-                    preco = input(
-                        'Digite o novo preço (R$ 00000.00) ou enter para '
-                        f'{resultado[9]}: ').strip().lower() or resultado[9]
-                    
-                    print('<::::::::::> FORMAS DE PAGAMENTO <::::::::::>')
-                    print('1 - Pix')
-                    print('2 - Dinheiro')
-                    print('3 - Cheque')
-                    print('4 - Cartão Crédito')
-                    print('5 - Cartão Débito')
-                    print('6 - Boleto')
-                    print('7 - Parcelamento')
+                exibir_tabela('aviao')
+                id_aviao = input(
+                    'Digite o id do novo avião: ').strip().lower()
+                
+                exibir_tabela('rota')
+                id_rota = input('Digite o id da nova rota: ').strip().lower()
+                
+                data_hora_partida = input(
+                    'Digite a nova data e hora de partida ' + 
+                    '(aaaa/mm/dd - hh/mm): ').strip().lower()
+                
+                data_hora_chegada = input(
+                    'Digite a nova data e hora de chegada ' +
+                    '(aaaa/mm/dd - hh/mm): ').strip().lower()
+                
+                data_hora_volta = input(
+                    'Digite a nova data e hora de volta ' +
+                    '(aaaa/mm/dd - hh/mm): ').strip().lower()
+                
+                paradas = input('Digite o novo número de paradas: '
+                                ).strip().lower()
+                
+                assentos = input(
+                    'Digite o novo número de assentos disponíveis: '
+                    ).strip().lower()
+                
+                preco = input(
+                    'Digite o novo preço (R$ 00000.00): ').strip().lower()
+                
+                print('<::::::::::> FORMAS DE PAGAMENTO <::::::::::>')
+                print('1 - Pix')
+                print('2 - Dinheiro')
+                print('3 - Cheque')
+                print('4 - Cartão Crédito')
+                print('5 - Cartão Débito')
+                print('6 - Boleto')
+                print('7 - Parcelamento')
 
-                    forma_pagamento = input(
-                        'Digite o n° da forma de pagamento ou enter para '
-                        f'{resultado[10]}: ').strip().lower() or resultado[10]
+                forma_pagamento = input(
+                    'Digite o n° da forma de pagamento: ').strip().lower()
 
-                    # Salvando os novos dados:
-                    informacao = (id_viajante, id_aviao, id_rota,
-                                  data_hora_partida, data_hora_chegada,
-                                  data_hora_volta, paradas, assentos,
-                                  preco, forma_pagamento)
-                    novos_dados.append(informacao)
-                    informacao = ()
-                    
-                    # Dando ao usuário a opção de alterar outra passagem:
-                    opcao = input('Deseja alterar outra passagem (s/n): '
-                                  ).strip().lower()
-                    if opcao == 's':
-                        continue
-                    else:
-                        principal = False
-                        break
-                    
-                # Informando que a passagem não foi encontrada:
-                else:
-                    print('Passagem não encontrada!')
-                    input('Pressione qualquer tecla para continuar...')
+                # Salvando os novos dados:
+                informacao = (id_viajante, id_aviao, id_rota,
+                                data_hora_partida, data_hora_chegada,
+                                data_hora_volta, paradas, assentos,
+                                preco, forma_pagamento, identificador)
+                novos_dados.append(informacao)
+                informacao = ()
+                
+                # Dando ao usuário a opção de alterar outra passagem:
+                opcao = input('Deseja alterar outra passagem (s/n): '
+                                ).strip().lower()
+                if opcao == 's':
                     continue
-                
+                else:
+                    principal = False
+                    break
+                    
         elif opcao == '6':
             tabela = 'rota'
 
@@ -409,55 +288,35 @@ def submenu_atualizar():
                 identificador = input('Qual o id da rota que deseja alterar? '
                                       ).strip().lower()
                 
-                # Consulta SQL para encontrar e trazer os dados da rota:
-                cursor.execute('SELECT * FROM rota WHERE id_rota = ?', 
-                               identificador)
-                resultado = cursor.fetchone()
+                # Pedindo os novos dados:
+                cidade_partida = input('Digite a nova cidade de partida: '
+                                       ).strip().lower()
+            
+                cidade_chegada = input('Digite a nova cidade de chegada: '
+                                       ).strip().lower()
                 
-                # Verificando se os dados foram encontrados:
-                if resultado[0] == int(identificador):
-                    # Exibindo os dados da rota selecionada:
-                    exibir_dados(resultado, cursor)
-                    
-                    # Pedindo os novos dados:
-                    cidade_partida = input(
-                        'Digite a nova cidade de partida ou enter para '
-                        f'{resultado[1]}: ').strip().lower() or resultado[1]
+                duracao = input('Digite a nova duração da rota: '
+                                ).strip().lower()
                 
-                    cidade_chegada = input(
-                        'Digite a nova cidade de chegada ou enter para '
-                        f'{resultado[2]}: ').strip().lower() or resultado[2]
-                    
-                    duracao = input(
-                        'Digite a nova duração da rota ou enter para '
-                        f'{resultado[3]}: ').strip().lower() or resultado[3]
-                    
-                    # Salvando os novos dados:
-                    informacao = (cidade_partida, cidade_chegada, duracao)
-                    novos_dados.append(informacao)
-                    informacao = ()
-                    
-                    # Dando ao usuário a opção de alterar outra rota:
-                    opcao = input('Deseja atualizar outra rota (s/n): '
-                                  ).strip().lower()
-                    if opcao == 's':
-                        continue
-                    else:
-                        principal = False
-                        break
-                    
-                # Informando que a rota não foi encontrada:
-                else:
-                    print('Rota não encontrada!')
-                    input('Pressione qualquer tecla para continuar...')
+                # Salvando os novos dados:
+                informacao = (cidade_partida, cidade_chegada,
+                              duracao, identificador)
+                novos_dados.append(informacao)
+                informacao = ()
+                
+                # Dando ao usuário a opção de alterar outra rota:
+                opcao = input('Deseja atualizar outra rota (s/n): '
+                                ).strip().lower()
+                if opcao == 's':
                     continue
-                
+                else:
+                    principal = False
+                    break
+                    
         else:
             print('Opção inválida: digite apenas números!')
-
-    # Fechando a conexão com o banco de dados:
-    conexao.commit()
-    conexao.close()
+            input('Pressione qualquer tecla para continuar...')
+            continue
 
     # Retorno da função:
-    return tabela, identificador, novos_dados
+    return tabela, novos_dados

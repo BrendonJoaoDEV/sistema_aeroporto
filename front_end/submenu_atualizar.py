@@ -5,6 +5,14 @@
 # Módulo onde será definida a função que recebe e trata os dados da opção atualizar do menu principal.
 
 def submenu_atualizar():
+    """Submenu Atualizar
+
+    Returns:
+        string: nome da tabela para uso da função back_end.atualizar.
+        int: identificador dos dados para uso da função back_end.atualizar.
+        tupla: tupla com os novos dados para uso da função back_end.atualizar.
+    """    
+    
     # Importação de módulos:
     from front_end.exibir_tabela import exibir_tabela
     from front_end.exibir_dados import exibir_dados

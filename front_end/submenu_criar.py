@@ -6,6 +6,13 @@
 
 # Definição da função:
 def submenu_criar():
+    """Submenu Criar
+
+    Returns:
+        string: nome da tabela para uso da função back_end.criar.
+        tupla: dados para uso da função back_end.criar.
+    """    
+    
     # Importação de módulos:
     from front_end.exibir_tabela import exibir_tabela
     from front_end.limpar_terminal import limpar_terminal

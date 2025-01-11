@@ -5,6 +5,13 @@
 # Módulo onde será definida a função que recebe e trata os dados da opção deletar do menu principal.
 
 def submenu_deletar():
+    """Submenu Deletar
+
+    Returns:
+        string: nome da tabela para uso da função back_end.deletar.
+        int: identificador para uso da função back_end.deletar.
+    """    
+    
     # Importação de módulos:
     from front_end.exibir_tabela import exibir_tabela
     from front_end.limpar_terminal import limpar_terminal

@@ -5,6 +5,9 @@
 # Módulo onde será definida a função que recebe e trata os dados da opção visualizar do menu principal.
 
 def submenu_visualizar():
+    """Submenu Visualizar
+    """    
+    
     # Importação de módulos:
     from front_end.exibir_tabela import exibir_tabela
     from front_end.limpar_terminal import limpar_terminal

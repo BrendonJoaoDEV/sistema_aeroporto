@@ -1,6 +1,6 @@
 # Curso de Desenvolvimento de Sistemas.
 # Turma 0152.
-# Professor: Brendon João Campos Neves.
+# Autor: Brendon João Campos Neves.
 # Data: 09/12/2024.
 # Módulo onde será definida a função que imprime registro no banco:
 

@@ -1,6 +1,6 @@
 # Curso de Desenvolvimento de Sistemas.
 # Turma 0152.
-# Professor: Brendon João Campos Neves.
+# Autor: Brendon João Campos Neves.
 # Data: 06/12/2024.
 # Módulo onde seram definidos placeholders padrões para cada tabela,
 # isso servirá para evitar invasões SQL injection, além de permitir

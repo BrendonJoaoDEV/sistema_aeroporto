@@ -1,6 +1,6 @@
 # Curso de Desenvolvimento de Sistemas.
 # Turma 0152.
-# Professor: Brendon João Campos Neves.
+# Autor: Brendon João Campos Neves.
 # Data: 11/12/2024.
 # Módulo onde será definida a função que recebe e trata os dados da opção criar do menu principal.
 

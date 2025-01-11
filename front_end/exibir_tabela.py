@@ -1,6 +1,6 @@
 # Curso de Desenvolvimento de Sistemas.
 # Turma 0152.
-# Professor: Brendon João Campos Neves.
+# Autor: Brendon João Campos Neves.
 # Data: 11/12/2024.
 # Módulo com função que faz uso da função vizualizar registro
 # e a biblioteca prettytable para exibir tabelas:

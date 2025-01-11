@@ -1,6 +1,6 @@
 # Curso de Desenvolvimento de Sistemas.
 # Turma 0152.
-# Professor: Brendon João Campos Neves.
+# Autor: Brendon João Campos Neves.
 # Data: 10/01/2025.
 # Módulo onde será definida a função que recebe e trata os dados da opção atualizar do menu principal.
 

@@ -30,26 +30,38 @@ def visualizar_registro(tabela):
     if tabela == 'viajante':
         cursor.execute(selects['viajante'])
         resultado = cursor.fetchall()
-    
+
     elif tabela == 'telefone':
         cursor.execute(selects['telefone'])
         resultado = cursor.fetchall()
-        
+
     elif tabela == 'companhia':
         cursor.execute(selects['companhia'])
         resultado = cursor.fetchall()
-        
+
     elif tabela == 'aviao':
         cursor.execute(selects['aviao'])
         resultado = cursor.fetchall()
     elif tabela == 'rota':
         cursor.execute(selects['rota'])
         resultado = cursor.fetchall()
-        
+
     elif tabela == 'passagem':
         cursor.execute(selects['passagem'])
         resultado = cursor.fetchall()
-        
+
+    elif tabela == 'viajante_telefone':
+        cursor.execute(selects['viajante_telefone'])
+        resultado = cursor.fetchall()
+
+    elif tabela == 'companhia_aviao':
+        cursor.execute(selects['companhia_aviao'])
+        resultado = cursor.fetchall()
+
+    elif tabela == 'passagem_relacionados':
+        cursor.exeecute(selects['passagem_relacionados'])
+        resultado = cursor.fetchall()
+
     else:
         resultado = 'Falha na visualização: tabela não encontrada'
 

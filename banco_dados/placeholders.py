@@ -76,52 +76,92 @@ updates = {
 
 selects = {
     'viajante': '''SELECT 
-                    id_viajante AS "id",
-                    nome_viajante AS "nome",
-                    cpf AS "cpf",
-                    idade,
-                    email
+                    id_viajante AS "ID",
+                    nome_viajante AS "Nome",
+                    cpf AS "CPF",
+                    idade AS "Idade",
+                    email AS "Email"
                     FROM viajante''',
 
     'telefone': '''SELECT 
-                    id_telefone AS "id",
-                    id_viajante AS "id viajante",
-                    telefone
+                    id_telefone AS "ID",
+                    id_viajante AS "ID do Viajante",
+                    telefone AS "Telefone"
                     FROM telefone''',
 
     'companhia': '''SELECT
-                    id_companhia AS "id",
-                    nome_companhia AS "nome"
+                    id_companhia AS "ID",
+                    nome_companhia AS "Nome da Companhia"
                     FROM companhia''',
 
     'aviao': '''SELECT
-                id_aviao AS "id",
-                id_companhia AS "id companhia",
-                nome_aviao AS "nome",
-                modelo_aviao AS "modelo",
-                ano_fabricacao AS "ano de fabricação",
-                numero_voos AS "número de voos",
-                numero_assentos AS "número de assentos"
+                id_aviao AS "ID",
+                id_companhia AS "ID da Companhia",
+                nome_aviao AS "Nome do Avião",
+                modelo_aviao AS "Modelo",
+                ano_fabricacao AS "Ano de Fabricação",
+                numero_voos AS "Número de Voos",
+                numero_assentos AS "Número de Assentos"
                 FROM aviao''',
 
     'rota': '''SELECT
-                id_rota AS "id",
-                cidade_partida AS "cidade de partida",
-                cidade_chegada AS "cidade de chegada",
-                duracao AS "duração"
+                id_rota AS "ID",
+                cidade_partida AS "Cidade de Partida",
+                cidade_chegada AS "Cidade de Chegada",
+                duracao AS "Duração"
                 FROM rota''',
 
     'passagem': '''SELECT
-                    id_passagem AS "id",
-                    id_viajante AS "id do viajante",
-                    id_aviao AS "id do avião",
-                    id_rota AS "id da rota",
-                    data_hora_partida AS "data e hora de partida",
-                    data_hora_chegada AS "data e hora de chegada",
-                    data_hora_volta AS "dara e hora de volta",
-                    numero_paradas AS "número de paradas",
-                    assentos_disponiveis AS "assentos disponíveis",
-                    preco AS "preço",
-                    forma_pagamento AS "forma de pagamento"
-                    FROM passagem'''
+                    id_passagem AS "ID",
+                    id_viajante AS "ID do Viajante",
+                    id_aviao AS "ID do Avião",
+                    id_rota AS "ID da Rota",
+                    data_hora_partida AS "Data e Hora de Partida",
+                    data_hora_chegada AS "Data e Hora de Chegada",
+                    data_hora_volta AS "Data e Hora de Volta",
+                    numero_paradas AS "Número de Paradas",
+                    assentos_disponiveis AS "Assentos Disponíveis",
+                    preco AS "Preço",
+                    forma_pagamento AS "Forma de Pagamento"
+                    FROM passagem''',
+
+    'viajante_telefone': '''SELECT 
+                                viajante.nome_viajante AS "Nome",
+                                viajante.cpf AS "CPF",
+                                viajante.idade AS "Idade",
+                                viajante.email AS "Email",
+                                telefone.telefone AS "Telefone"
+                            FROM viajante
+                            JOIN telefone ON viajante.id_viajante = telefone.id_viajante
+                                ''',
+
+    'companhia_aviao': '''SELECT
+                                companhia.nome_companhia AS "Nome Companhia",
+                                aviao.nome_aviao AS "Nome do Avião",
+                                aviao.modelo_aviao AS "Modelo do Avião",
+                                aviao.ano_fabricacao AS "Ano de Fabricação",
+                                aviao.numero_voos AS "Número de Voos",
+                                aviao.numero_assentos AS "Número de Assentos",
+                            FROM companhia
+                            JOIN aviao ON companhia.id_companhia = aviao.id_companhia
+                            ''',
+
+    'passagem_relacionados': '''SELECT
+                                    viajante.nome_viajante AS "Nome do Viajante",
+                                    viajante.cpf AS "CPF",
+                                    aviao.nome_aviao AS "Nome do Avião",
+                                    aviao.modelo_aviao AS "Modelo do Avião",
+                                    rota.cidade_partida AS "Cidade de Partida",
+                                    passagem.data_hora_partida AS "Data e Hora de Partida",
+                                    rota.cidade_chegada AS "Cidade de Chegada",
+                                    passagem.data_hora_chegada AS "Data e Hora de Chegada",
+                                    rota.duracao AS "Duração",
+                                    passagem.data_hora_volta AS "Data e hora de Retorno",
+                                    passagem.preco AS "Preço da Passagem",
+                                    passagem.forma_pagamento AS "Forma de Pagamento"
+                                FROM passagem
+                                JOIN viajante ON viajante.id_viajante = passagem.id_viajante
+                                JOIN aviao ON aviao.id_aviao = passagem.id_aviao
+                                JOIN rota ON rota.id_rota = passagem.id_rota
+                                '''
 }

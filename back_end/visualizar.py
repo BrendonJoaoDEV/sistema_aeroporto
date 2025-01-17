@@ -59,7 +59,7 @@ def visualizar_registro(tabela):
         resultado = cursor.fetchall()
 
     elif tabela == 'passagem_relacionados':
-        cursor.exeecute(selects['passagem_relacionados'])
+        cursor.execute(selects['passagem_relacionados'])
         resultado = cursor.fetchall()
 
     else:

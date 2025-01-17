@@ -141,7 +141,7 @@ selects = {
                                 aviao.modelo_aviao AS "Modelo do Avião",
                                 aviao.ano_fabricacao AS "Ano de Fabricação",
                                 aviao.numero_voos AS "Número de Voos",
-                                aviao.numero_assentos AS "Número de Assentos",
+                                aviao.numero_assentos AS "Número de Assentos"
                             FROM companhia
                             JOIN aviao ON companhia.id_companhia = aviao.id_companhia
                             ''',

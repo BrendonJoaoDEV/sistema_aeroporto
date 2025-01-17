@@ -104,7 +104,7 @@ def submenu_criar():
 
                 # Dando ao usuário a opção de adicionar mais dados:
                 opcao = input(
-                    'Deseja inserir mais dados na tabela viajante (s/n): '
+                    'Deseja inserir mais dados na tabela telefone (s/n): '
                 ).strip().lower()
                 if opcao == 's':
                     continue

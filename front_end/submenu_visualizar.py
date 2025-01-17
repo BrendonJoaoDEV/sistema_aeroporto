@@ -25,6 +25,9 @@ def submenu_visualizar():
         print('4 - Avião')
         print('5 - Passagem')
         print('6 - Rota')
+        print('7 - Viajante e Telefone')
+        print('8 - Companhia e Avião')
+        print('9 - Passagem Completa')
 
         opcao = input('Digite o número da opção que deseja: ').strip()
 
@@ -64,6 +67,24 @@ def submenu_visualizar():
         elif opcao == '6':
             print('<::::::::::> ROTA <::::::::::>')
             exibir_tabela('rota')
+            input('Pressione qualquer tecla para continuar...')
+            continue
+        
+        elif opcao == '7':
+            print('<::::::::::> VIAJANTE E TELEFONE <::::::::::>')
+            exibir_tabela('viajante_telefone')
+            input('Pressione qualquer tecla para continuar...')
+            continue
+        
+        elif opcao == '8':
+            print('<::::::::::> COMPANHIA E AVIÃO <::::::::::>')
+            exibir_tabela('companhia_aviao')
+            input('Pressione qualquer tecla para continuar...')
+            continue
+        
+        elif opcao == '9':
+            print('<::::::::::> PASSAGEM COMPLETA <::::::::::>')
+            exibir_tabela('passagem_relacionados')
             input('Pressione qualquer tecla para continuar...')
             continue
 

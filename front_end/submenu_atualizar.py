@@ -30,13 +30,13 @@ def submenu_atualizar():
         limpar_terminal()
         # Menu da função:
         print('<::::::::::> ATUALIZAR <::::::::::>')
-        print('0 - Voltar')
-        print('1 - Viajante')
-        print('2 - Telefone')
-        print('3 - Companhia')
-        print('4 - Avião')
-        print('5 - Passagem')
-        print('6 - Rota')
+        print('0 - Voltar para o menu principal')
+        print('1 - Modificar dados de um viajante')
+        print('2 - Modificar telefone de um viajante')
+        print('3 - Modificar dados de uma companhia')
+        print('4 - Modificar dados de um avião')
+        print('5 - Modificar dados de uma passagem')
+        print('6 - Modificar uma rota')
 
         opcao = input('Digite o número da opção que deseja: ').strip()
 

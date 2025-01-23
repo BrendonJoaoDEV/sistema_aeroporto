@@ -27,14 +27,13 @@ def submenu_deletar():
         limpar_terminal()
         # Menu da função:
         print('<::::::::::> DELETAR <::::::::::>')
-        print('De qual tabela você deseja deletar dados?')
-        print('0 - Voltar')
-        print('1 - Viajante')
-        print('2 - Telefone')
-        print('3 - Companhia')
-        print('4 - Avião')
-        print('5 - Passagem')
-        print('6 - Rota')
+        print('0 - Voltar para o menu principal')
+        print('1 - Apagar um viajante (apaga também seu telefone)')
+        print('2 - Apagar um telefone')
+        print('3 - Apagar uma companhia (apaga também todos os seus aviões)')
+        print('4 - Apagar um avião')
+        print('5 - Apagar uma passagem')
+        print('6 - Apagar uma rota')
 
         opcao = input('Digite o número da opção desejada: ').strip()
 

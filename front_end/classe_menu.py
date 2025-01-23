@@ -6,6 +6,7 @@
 
 # Importando as funções dos outros módulos:
 from front_end.limpar_terminal import limpar_terminal
+from front_end.menu_principal import menu_principal
 from front_end.submenu_criar import submenu_criar
 from front_end.submenu_atualizar import submenu_atualizar
 from front_end.submenu_visualizar import submenu_visualizar
@@ -19,6 +20,9 @@ class Menu:
 
     def limpar_terminal(self):
         return limpar_terminal()
+
+    def menu_principal(self):
+        return menu_principal()
 
     def submenu_criar(self):
         tabela, dados = submenu_criar()

@@ -76,9 +76,9 @@ def criar_banco():
             assentos_disponiveis INTEGER,
             preco REAL,
             forma_pagamento TEXT,
-            FOREIGN KEY (id_viajante) REFERENCES viajante(id_viajante) ON DELETE CASCADE,
-            FOREIGN KEY (id_aviao) REFERENCES aviao(id_aviao) ON DELETE CASCADE,
-            FOREIGN KEY (id_rota) REFERENCES rota(id_rota) ON DELETE CASCADE
+            FOREIGN KEY (id_viajante) REFERENCES viajante(id_viajante),
+            FOREIGN KEY (id_aviao) REFERENCES aviao(id_aviao),
+            FOREIGN KEY (id_rota) REFERENCES rota(id_rota)
         );
     ''')
 

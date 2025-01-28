@@ -5,8 +5,11 @@ while True:
         print('Entrada Vazia!')
         input('Pressione qualquer tecla para continuar...')
 
-    elif entrada:  # Decimal
-        print('Entrada Decimal!')
+    # Faz apenas a validação se a entrada esta no modelo de um CPF
+    # Não faz a validação matemática!
+    # 184.660.166-51
+    elif entrada[3] == '.' and entrada[7] == '.' and entrada[11] == '-':  # CPF
+        print('Entrada CPF!')
         input('Pressione qualquer tecla para continuar...')
 
     elif entrada:  # Inteiro
@@ -29,9 +32,7 @@ while True:
         print('')
         input('Pressione qualquer tecla para continuar...')
 
-    elif entrada:  # CPF
-        print('Entrada CPF!')
-        input('Pressione qualquer tecla para continuar...')
+    
 
     elif entrada:  # Número de telefone
         print('Entrada número de Telefone!')
